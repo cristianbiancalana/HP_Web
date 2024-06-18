@@ -1,0 +1,30 @@
+.buttons{
+    width: 400px;
+    height: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin:80px auto;
+}
+
+.buttons button{
+    border: none;
+    background-color: transparent;
+}
+
+.buttons img{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.charactershouse{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:30px;
+    margin: 6px auto;
+    height: 90vh;
+}

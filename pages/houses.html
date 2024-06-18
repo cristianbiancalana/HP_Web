@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Casas - Proyecto Harry Potter</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/personajes.css">
+    <link rel="stylesheet" href="../css/houses.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="../pages/houses.html">Casas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="characters">
+        <h1>Casas</h1>
+        <div id="buttons" class="buttons">
+            <button class="gryffindors" id="gryffindors" value="gryffindors"><img src="../assets/img/Gryffindors.png" alt=""></button>
+            <button class="slytherin" id="slytherin" value="slytherin"><img src="../assets/img/Slytherin.png" alt=""></button>
+            <button class="hufflepuffs" id="hufflepuffs" value="hufflepuffs"><img src="../assets/img/Hufflepuffs.png" alt=""></button>
+            <button class="ravenclaw" id="ravenclaw" value="ravenclaw"><img src="../assets/img/Ravenclaw.png" alt=""></button>
+        </div>
+        <div id="charactershouse" class="charactershouse">
+            <!---Personajes de Gryffindors-->
+            <!---Personajes de Slytherin-->  
+            <!---Personajes de Hufflepuffs-->
+            <!---Personajes de Ravenclaw-->
+            <!--Segun el botón presionado-->
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Proyecto Harry Potter. Todos los derechos reservados.</p>
+    </footer>
+    <script src="../js/houses.js"></script>
+  </body>
 </html>
