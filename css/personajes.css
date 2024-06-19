@@ -1,3 +1,8 @@
+body{
+    background-image: url('../assets/img/characters.jpg');
+    background-position: center;
+    background-size: cover;
+}
 .characters{
     display: flex;
     flex-direction: column;
