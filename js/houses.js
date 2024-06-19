@@ -4,6 +4,7 @@ const $buttonhufflepuffs = document.getElementById('hufflepuffs');
 const $buttonravenclaw = document.getElementById('ravenclaw');
 const $divcharacters = document.getElementById('charactershouse');
 const $arrow = document.getElementById('arrow');
+const $main = document.querySelector('body');
 
 $arrow.addEventListener('click', function () {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -14,6 +15,10 @@ $buttongryffindors.addEventListener('click', async function () {
     numeracion = 1;
     let gryffindors = await fetchdata('https://hp-api.onrender.com/api/characters/house/gryffindor');
     console.log(gryffindors);
+    $main.style.backgroundImage = "url('../assets/img/backgryffindor.jpg')";
+    $main.style.backgroundSize = "cover";
+    $main.style.backgroundPosition = "center";
+    $main.style.backgroundRepeat = "repeat";
     for (let gryffindor of gryffindors) {
         let img = gryffindor.image;
             const alive = gryffindor.alive;
@@ -61,6 +66,10 @@ $buttongslytherin.addEventListener('click', async function () {
     numeracion = 1;
     let slytherins = await fetchdata('https://hp-api.onrender.com/api/characters/house/slytherin');
     console.log(slytherins);
+    $main.style.backgroundImage = "url('../assets/img/backslytherins.jpg')";
+    $main.style.backgroundSize = "cover";
+    $main.style.backgroundPosition = "center";
+    $main.style.backgroundRepeat = "repeat";
     for (let slytherin of slytherins) {
         let img = slytherin.image;
             const alive = slytherin.alive;
@@ -108,6 +117,10 @@ $buttonhufflepuffs.addEventListener('click', async function () {
     numeracion = 1;
     let hufflepuffss = await fetchdata('https://hp-api.onrender.com/api/characters/house/hufflepuffs');
     console.log(hufflepuffss);
+    $main.style.backgroundImage = "url('../assets/img/backhufflepuffs.jpg')";
+    $main.style.backgroundSize = "cover";
+    $main.style.backgroundPosition = "center";
+    $main.style.backgroundRepeat = "repeat";
     for (let hufflepuffs of hufflepuffss) {
         let img = hufflepuffs.image;
             const alive = hufflepuffs.alive;
@@ -155,6 +168,10 @@ $buttonravenclaw.addEventListener('click', async function () {
     numeracion = 1;
     let ravenclaws = await fetchdata('https://hp-api.onrender.com/api/characters/house/ravenclaw');
     console.log(ravenclaws);
+    $main.style.backgroundImage = "url('../assets/img/backravenclaw.jpg')";
+    $main.style.backgroundSize = "cover";
+    $main.style.backgroundPosition = "center";
+    $main.style.backgroundRepeat = "repeat";
     for (let ravenclaw of ravenclaws) {
         let img = ravenclaw.image;
             const alive = ravenclaw.alive;
