@@ -74,3 +74,24 @@
     flex-direction: column;
     list-style: none;
 }
+
+.arrow-top{
+    background-color: rgb(255, 255, 60);
+    display: flex;
+    bottom: 5%;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 9999;
+    border: 5px ridge #d6a067;
+    border-radius: 100%;
+    left: 95%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.arrow{
+    border: none;
+    background-color: transparent; 
+}

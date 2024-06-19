@@ -3,8 +3,14 @@ const $buttongslytherin= document.getElementById('slytherin');
 const $buttonhufflepuffs = document.getElementById('hufflepuffs');
 const $buttonravenclaw = document.getElementById('ravenclaw');
 const $divcharacters = document.getElementById('charactershouse');
+const $arrow = document.getElementById('arrow');
+
+$arrow.addEventListener('click', function () {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+});
 
 $buttongryffindors.addEventListener('click', async function () {
+    $divcharacters.innerHTML = "";
     numeracion = 1;
     let gryffindors = await fetchdata('https://hp-api.onrender.com/api/characters/house/gryffindor');
     console.log(gryffindors);
@@ -50,7 +56,8 @@ $buttongryffindors.addEventListener('click', async function () {
     }
     
 });
-$buttongslytherin.addEventListener('click', async function() {
+$buttongslytherin.addEventListener('click', async function () {
+    $divcharacters.innerHTML = "";
     numeracion = 1;
     let slytherins = await fetchdata('https://hp-api.onrender.com/api/characters/house/slytherin');
     console.log(slytherins);
@@ -96,7 +103,8 @@ $buttongslytherin.addEventListener('click', async function() {
     }
     
 });
-$buttonhufflepuffs.addEventListener('click', async function() {
+$buttonhufflepuffs.addEventListener('click', async function () {
+    $divcharacters.innerHTML = "";
     numeracion = 1;
     let hufflepuffss = await fetchdata('https://hp-api.onrender.com/api/characters/house/hufflepuffs');
     console.log(hufflepuffss);
@@ -142,7 +150,8 @@ $buttonhufflepuffs.addEventListener('click', async function() {
     }
     
 });
-$buttonravenclaw.addEventListener('click', async function() {
+$buttonravenclaw.addEventListener('click', async function () {
+    $divcharacters.innerHTML = "";
     numeracion = 1;
     let ravenclaws = await fetchdata('https://hp-api.onrender.com/api/characters/house/ravenclaw');
     console.log(ravenclaws);

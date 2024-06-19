@@ -1,6 +1,10 @@
 const $divc = document.getElementById("grid");
 let numeracion = 1;
+const $arrow = document.getElementById('arrow');
 
+$arrow.addEventListener('click', function () {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+});
 
 fetch('https://hp-api.onrender.com/api/characters')
     .then((resp) => {
