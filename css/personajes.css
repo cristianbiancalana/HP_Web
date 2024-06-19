@@ -3,16 +3,25 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+#search{
+    padding: 0 5px;
+    margin:10px 10px 0 10px;
+    width: 195px;
+    height: 20px;
+    align-items: start;
+    justify-content: start;
+    border-radius: 10px;
+}
+
+main{
+    height: 100vh;
+}
 .characters{
     display: flex;
     flex-direction: column;
     overflow-inline: hidden;
     scroll-behavior: smooth;
-    
-    /* scroll-margin-block: ;
-    scrollbar-width: ;
-    scroll-snap-type: ;
-    scrollbar-width: ; */
 }
 .grid{
     scroll-snap-align: start;

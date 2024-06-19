@@ -21,6 +21,10 @@
     flex-direction: row;
 }
 
+.buttons button:hover{
+    cursor:pointer;
+}
+
 .charactershouse{
     display: grid;
     grid-template-columns: repeat(3,1fr);

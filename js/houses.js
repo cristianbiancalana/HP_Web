@@ -59,7 +59,7 @@ $buttongryffindors.addEventListener('click', async function () {
             `;
             numeracion = numeracion + 1;
     }
-    
+    window.scrollTo(0, 190);   
 });
 $buttongslytherin.addEventListener('click', async function () {
     $divcharacters.innerHTML = "";
@@ -110,7 +110,7 @@ $buttongslytherin.addEventListener('click', async function () {
             `;
             numeracion = numeracion + 1;
     }
-    
+    window.scrollTo(0, 190);
 });
 $buttonhufflepuffs.addEventListener('click', async function () {
     $divcharacters.innerHTML = "";
@@ -161,7 +161,7 @@ $buttonhufflepuffs.addEventListener('click', async function () {
             `;
             numeracion = numeracion + 1;
     }
-    
+    window.scrollTo(0, 190);
 });
 $buttonravenclaw.addEventListener('click', async function () {
     $divcharacters.innerHTML = "";
@@ -212,7 +212,7 @@ $buttonravenclaw.addEventListener('click', async function () {
             `;
             numeracion = numeracion + 1;
     }
-    
+    window.scrollTo(0, 190);
 });
 
 async function fetchdata(url) {
