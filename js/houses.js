@@ -5,12 +5,15 @@ const $buttonravenclaw = document.getElementById('ravenclaw');
 const $divcharacters = document.getElementById('charactershouse');
 const $arrow = document.getElementById('arrow');
 const $main = document.querySelector('body');
+const $search = document.getElementById('search');
+let $arraychar = [];
 
 $arrow.addEventListener('click', function () {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 });
 
 $buttongryffindors.addEventListener('click', async function () {
+    $search.value = "";
     $divcharacters.innerHTML = "";
     numeracion = 1;
     let gryffindors = await fetchdata('https://hp-api.onrender.com/api/characters/house/gryffindor');
@@ -19,49 +22,12 @@ $buttongryffindors.addEventListener('click', async function () {
     $main.style.backgroundSize = "cover";
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
-    for (let gryffindor of gryffindors) {
-        let img = gryffindor.image;
-            const alive = gryffindor.alive;
-            const gender = gryffindor.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divcharacters.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${gryffindor.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="$gryffindorsr.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${gryffindor.species}</li>
-                    <li>Casa: ${gryffindor.house}</li>
-                    <li>Patronus: ${gryffindor.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${gryffindor.actor} </li>
-                    <li>Cumpleaños: ${gryffindor.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-            numeracion = numeracion + 1;
-    }
-    window.scrollTo(0, 190);   
+    renderCharacters(gryffindors);
+    window.scrollTo(0, 200);
+    $arraychar = gryffindors;   
 });
 $buttongslytherin.addEventListener('click', async function () {
+    $search.value = "";
     $divcharacters.innerHTML = "";
     numeracion = 1;
     let slytherins = await fetchdata('https://hp-api.onrender.com/api/characters/house/slytherin');
@@ -70,49 +36,13 @@ $buttongslytherin.addEventListener('click', async function () {
     $main.style.backgroundSize = "cover";
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
-    for (let slytherin of slytherins) {
-        let img = slytherin.image;
-            const alive = slytherin.alive;
-            const gender = slytherin.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divcharacters.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${slytherin.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="$gryffindorsr.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${slytherin.species}</li>
-                    <li>Casa: ${slytherin.house}</li>
-                    <li>Patronus: ${slytherin.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${slytherin.actor} </li>
-                    <li>Cumpleaños: ${slytherin.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-            numeracion = numeracion + 1;
-    }
-    window.scrollTo(0, 190);
+    renderCharacters(slytherins);
+    window.scrollTo(0, 200);
+    $arraychar = slytherins;
+    
 });
 $buttonhufflepuffs.addEventListener('click', async function () {
+    $search.value = "";
     $divcharacters.innerHTML = "";
     numeracion = 1;
     let hufflepuffss = await fetchdata('https://hp-api.onrender.com/api/characters/house/hufflepuffs');
@@ -121,49 +51,12 @@ $buttonhufflepuffs.addEventListener('click', async function () {
     $main.style.backgroundSize = "cover";
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
-    for (let hufflepuffs of hufflepuffss) {
-        let img = hufflepuffs.image;
-            const alive = hufflepuffs.alive;
-            const gender = hufflepuffs.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divcharacters.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${hufflepuffs.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="$gryffindorsr.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${hufflepuffs.species}</li>
-                    <li>Casa: ${hufflepuffs.house}</li>
-                    <li>Patronus: ${hufflepuffs.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${hufflepuffs.actor} </li>
-                    <li>Cumpleaños: ${hufflepuffs.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-            numeracion = numeracion + 1;
-    }
-    window.scrollTo(0, 190);
+    renderCharacters(hufflepuffss);
+    window.scrollTo(0, 200);
+    $arraychar = hufflepuffss;
 });
 $buttonravenclaw.addEventListener('click', async function () {
+    $search.value = "";
     $divcharacters.innerHTML = "";
     numeracion = 1;
     let ravenclaws = await fetchdata('https://hp-api.onrender.com/api/characters/house/ravenclaw');
@@ -172,47 +65,9 @@ $buttonravenclaw.addEventListener('click', async function () {
     $main.style.backgroundSize = "cover";
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
-    for (let ravenclaw of ravenclaws) {
-        let img = ravenclaw.image;
-            const alive = ravenclaw.alive;
-            const gender = ravenclaw.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divcharacters.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${ravenclaw.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="$gryffindorsr.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${ravenclaw.species}</li>
-                    <li>Casa: ${ravenclaw.house}</li>
-                    <li>Patronus: ${ravenclaw.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${ravenclaw.actor} </li>
-                    <li>Cumpleaños: ${ravenclaw.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-            numeracion = numeracion + 1;
-    }
-    window.scrollTo(0, 190);
+    renderCharacters(ravenclaws);
+    window.scrollTo(0, 200);
+    $arraychar = ravenclaws;
 });
 
 async function fetchdata(url) {
@@ -229,3 +84,57 @@ async function fetchdata(url) {
         console.log('Error al obtener datos de la API')
     }
 }
+
+async function renderCharacters(characters) {
+    let htmlString = '';
+    numeracion = 1;
+    for (let character of characters) {
+        let img = character.image;
+        const alive = character.alive;
+        const gender = character.gener;
+        if (img === "") {
+            img = "../assets/img/photonotfound.webp";
+        }
+        const vive = alive ? "Si, aún vive" : "No :(";
+        const ocupation = gender === "male" ? "Actor" : "Actriz";
+        
+        htmlString += `
+        <div class="card" id="card">
+            <div class="header-card">
+                <span> <strong> # ${numeracion}</strong> </span>
+                <h3> ${character.name} </h3>
+            </div>
+            <div class="img-card">
+                <img src="${img}" alt="${character.name}">
+            </div>
+            <div class="details-card">
+                <ul>
+                <li>Especie: ${character.species}</li>
+                <li>Casa: ${character.house}</li>
+                <li>Patronus: ${character.patronus}</li>
+                <li>Se encuentra vivo? ${vive}</li>
+                <li>${ocupation}: ${character.actor} </li>
+                <li>Cumpleaños: ${character.dateOfBirth}</li>
+                </ul>
+            </div>
+        </div>
+        `;
+        numeracion++;
+    }
+    $divcharacters.innerHTML = htmlString;
+}
+$search.addEventListener('input', function () {
+    const array = $search.value.toLocaleLowerCase();
+    const filtrados = $arraychar.filter(character => {
+        return character.name.toLowerCase().includes(array) ||
+                character.house.toLowerCase().includes(array) ||
+                character.species.toLowerCase().includes(array) ||
+                character.actor.toLowerCase().includes(array) ||
+                String(character.dateOfBirth).includes(array);
+    });
+
+    numeracion = 1;
+    $divcharacters.innerHTML = '';
+    renderCharacters(filtrados);
+    window.scrollTo(0, 35);
+});
