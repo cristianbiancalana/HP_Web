@@ -19,7 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin:200px auto;
+    margin:10px auto;
     height: 20px;
 }
 
@@ -39,7 +39,7 @@
     grid-template-columns: repeat(3,1fr);
     gap:30px;
     margin: 6px auto;
-    /* height: 80vh; */
+    height: 80vh;
 }
 .arrow-top{
     background-color: rgb(255, 255, 60);
@@ -80,10 +80,12 @@
         height: 35px;
         left:88%;
     }
+    #search{
+        margin-top:200px;
+    }
     .charactershouse{
-        margin:-170px auto;
+        margin:auto;
         grid-template-columns: 1fr;
-        gap:120px;
     }
     .card{
         height: 70vh;

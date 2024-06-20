@@ -23,7 +23,7 @@ $buttongryffindors.addEventListener('click', async function () {
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
     renderCharacters(gryffindors);
-    window.scrollTo(0, 200);
+    window.scrollTo(0, 215);
     $arraychar = gryffindors;   
 });
 $buttongslytherin.addEventListener('click', async function () {
@@ -37,7 +37,7 @@ $buttongslytherin.addEventListener('click', async function () {
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
     renderCharacters(slytherins);
-    window.scrollTo(0, 200);
+    window.scrollTo(0, 215);
     $arraychar = slytherins;
     
 });
@@ -52,7 +52,7 @@ $buttonhufflepuffs.addEventListener('click', async function () {
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
     renderCharacters(hufflepuffss);
-    window.scrollTo(0, 200);
+    window.scrollTo(0, 215);
     $arraychar = hufflepuffss;
 });
 $buttonravenclaw.addEventListener('click', async function () {
@@ -66,7 +66,7 @@ $buttonravenclaw.addEventListener('click', async function () {
     $main.style.backgroundPosition = "center";
     $main.style.backgroundRepeat = "repeat";
     renderCharacters(ravenclaws);
-    window.scrollTo(0, 200);
+    window.scrollTo(0, 215);
     $arraychar = ravenclaws;
 });
 
