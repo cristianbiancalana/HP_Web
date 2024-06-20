@@ -60,7 +60,7 @@ footer {
   bottom: 0;
 }
 
-@media (max-width: 480px){
+@media (max-width: 485px){
   body{
     background-size: cover;
     background-image: url("../assets/img/backgroundhome480px.jpg");
