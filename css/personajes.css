@@ -12,6 +12,7 @@ body{
     align-items: start;
     justify-content: start;
     border-radius: 10px;
+    /* display: none; */
 }
 
 main{
