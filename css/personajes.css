@@ -136,3 +136,19 @@ main{
         height: 20vh;
     }
 }
+
+@media (max-width: 880px){
+    .grid{
+        margin: 20px auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap:120px;
+    }
+    .arrow-top{
+        width: 29px;
+        height: 29px;
+        left:95%;
+    }
+    .card{
+        height: 70vh;
+    }
+}

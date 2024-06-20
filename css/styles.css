@@ -11,6 +11,7 @@
 }
 body {
   background-image: url('../assets/img/backgroundhome.jpg');
+  background-size: cover;
   font-family: var(--font);
   font-size: 20px;
   box-sizing: border-box;
@@ -23,7 +24,6 @@ body p{
 header {
   background-color: #343a40;
   color: white;
-
 }
 
 nav ul {
@@ -64,7 +64,14 @@ footer {
   body{
     background-size: cover;
     background-image: url("../assets/img/backgroundhome480px.jpg");
+    background-repeat: no-repeat;
+  }
+}
 
+@media (max-width: 880px){
+  body{
+    background-size: cover;
+    background-image: url("../assets/img/backgroundhome880px.jpg");
     background-repeat: no-repeat;
   }
 }
