@@ -52,3 +52,39 @@
     border: none;
     background-color: transparent; 
 }
+@media (max-width: 480px){
+    .buttons{
+        display:grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        margin:20px auto;
+    }
+    .buttons img{
+        width: 100px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+    }
+    .arrow-top{
+        width: 35px;
+        height: 35px;
+        left:88%;
+    }
+    .charactershouse{
+        margin: 20px auto;
+        grid-template-columns: 1fr;
+        gap:120px;
+    }
+    .card{
+        height: 70vh;
+    }
+    .arrow-top{
+        width: 35px;
+        height: 35px;
+        left:88%;
+    }
+    .details-card{
+        height: 20vh;
+    }
+}

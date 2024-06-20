@@ -109,3 +109,27 @@ main{
     border: none;
     background-color: transparent; 
 }
+
+@media (max-width: 480px){
+    body{
+        background-image: url("../assets/img/characters480px.jpg");
+        background-repeat: repeat;
+        background-size: cover;
+    }
+    .grid{
+        margin: 20px auto;
+        grid-template-columns: 1fr;
+        gap:120px;
+    }
+    .card{
+        height: 70vh;
+    }
+    .arrow-top{
+        width: 35px;
+        height: 35px;
+        left:88%;
+    }
+    .details-card{
+        height: 20vh;
+    }
+}
