@@ -9,56 +9,53 @@ $arrow.addEventListener('click', function () {
 });
 
 
-
 fetch('https://hp-api.onrender.com/api/characters')
     .then((resp) => {
         return resp.json();
     }).then((characters) => {
-        console.log(characters);
-        characters.forEach(character => {
-            let img = character.image;
-            const alive = character.alive;
-            const gender = character.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divc.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${character.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="${character.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${character.species}</li>
-                    <li>Casa: ${character.house}</li>
-                    <li>Patronus: ${character.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${character.actor} </li>
-                    <li>Cumpleaños: ${character.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-            numeracion = numeracion + 1;
-        });
+        $arraychar = characters;
+        renderCharacters($arraychar);
         window.scrollTo(0, 35);
-        return $arraychar = characters;
     });
 
+function renderCharacters(characters) {
+    let htmlString = '';
+    numeracion = 1;
+    characters.forEach(character => {
+        let img = character.image;
+        const alive = character.alive;
+        const gender = character.gener;
+        if (img === "") {
+            img = "../assets/img/photonotfound.webp";
+        }
+        const vive = alive ? "Si, aún vive" : "No :(";
+        const ocupation = gender === "male" ? "Actor" : "Actriz";
+        
+        htmlString += `
+        <div class="card" id="card">
+            <div class="header-card">
+                <span> <strong> # ${numeracion}</strong> </span>
+                <h3> ${character.name} </h3>
+            </div>
+            <div class="img-card">
+                <img src="${img}" alt="${character.name}">
+            </div>
+            <div class="details-card">
+                <ul>
+                <li>Especie: ${character.species}</li>
+                <li>Casa: ${character.house}</li>
+                <li>Patronus: ${character.patronus}</li>
+                <li>Se encuentra vivo? ${vive}</li>
+                <li>${ocupation}: ${character.actor} </li>
+                <li>Cumpleaños: ${character.dateOfBirth}</li>
+                </ul>
+            </div>
+        </div>
+        `;
+        numeracion++;
+    });
+    $divc.innerHTML = htmlString;
+}
 $search.addEventListener('input', function () {
     const array = $search.value.toLocaleLowerCase();
     const filtrados = $arraychar.filter(character => {
@@ -68,47 +65,9 @@ $search.addEventListener('input', function () {
                 character.actor.toLowerCase().includes(array) ||
                 String(character.dateOfBirth).includes(array);
     });
+
     numeracion = 1;
     $divc.innerHTML = '';
-    filtrados.forEach(filtrado => {
-        let img = filtrado.image;
-            const alive = filtrado.alive;
-            const gender = filtrado.gener;
-            if (img === "") {
-                img = "../assets/img/photonotfound.webp";
-            }
-            if (alive) {
-                vive = "Si, aún vive ";
-            } else {
-                vive = "No :(";
-            }
-            if (gender==="male") {
-                ocupation = "Actor";
-            } else{
-                ocupation = "Actriz";
-            }
-            $divc.innerHTML += `
-            <div class="card" id="card">
-                <div class="header-card">
-                    <span> <strong> # ${numeracion}</strong> </span>
-                    <h3> ${filtrado.name} </h3>
-                </div>
-                <div class="img-card">
-                    <img src="${img}" alt="${filtrado.name}">
-                </div>
-                <div class="details-card">
-                    <ul>
-                    <li>Especie: ${filtrado.species}</li>
-                    <li>Casa: ${filtrado.house}</li>
-                    <li>Patronus: ${filtrado.patronus}</li>
-                    <li>Se encuentra vivo? ${vive}</li>
-                    <li>${ocupation}: ${filtrado.actor} </li>
-                    <li>Cumpleaños: ${filtrado.dateOfBirth}</li>
-                    </ul>
-                </div>
-            </div>
-            `;
-        numeracion = numeracion + 1; 
-        });
-        window.scrollTo(0, 35);    
+    renderCharacters(filtrados);
+    window.scrollTo(0, 35);
 });
