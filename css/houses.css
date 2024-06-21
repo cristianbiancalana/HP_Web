@@ -61,12 +61,30 @@
     border: none;
     background-color: transparent; 
 }
+.deschouse{
+    justify-content: center;
+    align-content: center;
+    margin: 10px auto;
+}
+.descri{
+    border: 10px double azure;
+    justify-content: center;
+    align-content: center;
+    margin-top: 260px;
+    height: 50vh;
+    width: 1000px;
+}
+.caracteristicas li{
+    text-shadow:none;
+    text-decoration: none;
+}
+
 @media (max-width: 485px){
     .buttons{
         display:grid;
-        gap: 20px;
+        gap: 80px;
         grid-template-columns: repeat(2, 1fr);
-        margin:20px auto;
+        margin:40px auto;
     }
     .buttons img{
         width: 100px;
@@ -83,6 +101,9 @@
     #search{
         margin-top:200px;
     }
+    .deschouse{
+        width: 450px;
+    }
     .charactershouse{
         margin:auto;
         grid-template-columns: 1fr;
@@ -98,16 +119,40 @@
     .details-card{
         height: 20vh;
     }
+    .descri{
+        margin-top: 380px;
+        height: 90vh;
+        width: 450px;
+    }
+    .caracteristicas li,h2,p{
+        width: 400px;
+    }
 }
 @media (max-width: 880px){
+    .buttons img{
+        width: 100px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        margin-top:-70px;
+    }
     .charactershouse{
-        margin: 20px auto;
-        grid-template-columns: repeat(2, 1fr);
+        margin: 30px auto;
+        grid-template-columns: repeat(2,1fr);
         gap:120px;
+    }
+
+    .card{
+        height: 70vh;
     }
     .arrow-top{
         width: 29px;
         height: 29px;
         left:95%;
+    }
+    .descri{
+        margin-top: 380px;
+        height: 55vh;
+        width: 700px;
     }
 }
